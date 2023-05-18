@@ -26,17 +26,17 @@ public class Reservation {
 
     private String status = "created";
 
-    // Client
-    @ManyToOne
-    @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"reservations", "messages"})
-    private Client client;
-
     // Car
     @ManyToOne
     @JoinColumn(name = "carId")
     @JsonIgnoreProperties("reservations")
     private Car car;
+    
+    // Client
+    @ManyToOne
+    @JoinColumn(name = "clientId")
+    @JsonIgnoreProperties({"reservations", "messages"})
+    private Client client;
 
     // Score
     @OneToOne
